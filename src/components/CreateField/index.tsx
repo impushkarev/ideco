@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { IUser, ITask } from 'src/intefaces'
+import { IUser } from 'src/intefaces'
 import { connect } from 'react-redux'
 import { addTask } from 'src/actions/task'
 import './style.scss'

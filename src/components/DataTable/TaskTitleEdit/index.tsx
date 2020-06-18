@@ -28,8 +28,15 @@ const TaskTitleEdit:React.FC<TaskTitleEditProps> = ({task, startEditingTask}) =>
   )
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-  startEditingTask: (id: number) => dispatch(startEditingTask(id)),
+const mapStateToProps = (state: any) => ({
+
 })
 
-export default connect(mapDispatchToProps)(TaskTitleEdit)
+const mapDispatchToProps = (dispatch: any) => ({
+  startEditingTask: (id: number) => dispatch(startEditingTask(id))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TaskTitleEdit)

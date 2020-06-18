@@ -37,8 +37,15 @@ const TaskTitle:React.FC<TaskTitleProps> = ({task, updateTask}) => {
   )
 }
 
+const mapStateToProps = (state: any) => ({
+  
+})
+
 const mapDispatchToProps = (dispatch: any) => ({
   updateTask: (id: number, title: string) => dispatch(updateTask(id, title))
 })
 
-export default connect(mapDispatchToProps)(TaskTitle)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TaskTitle)
