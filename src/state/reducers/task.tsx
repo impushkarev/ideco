@@ -11,13 +11,17 @@ type action = {
   user: TUser
 }
 
+let nextId = 0
+
 const task = (state: TTask[] = [], action: action) => {
   switch (action.type) {
     case 'INIT_TASK':
+      nextId = action.tasks.length + 1
       return action.tasks
     case 'ADD_TASK':
+      nextId = nextId + 1
       const ct:TTask = {
-        id: state.length + 1,
+        id: nextId,
         date: new Date(),
         title: action.taskName,
         user: action.user,
