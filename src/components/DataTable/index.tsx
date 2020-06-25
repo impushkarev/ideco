@@ -60,34 +60,54 @@ const DataTable:React.FC<DataTableProps> = ({tasks, dispatch}) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={`table`} aria-label="simple table">
+      <Table className={`table`} aria-label="simpleTable">
         <TableHead>
           <TableRow>
-            <TableCell size="small" align="center"></TableCell>
+            <TableCell></TableCell>
             <TableCell align="left">Исполнитель</TableCell>
             <TableCell align="left">Задача</TableCell>
-            <TableCell align="left"></TableCell>
-            <TableCell align="left"></TableCell>
+            <TableCell align="left">Действия</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {tasks.map((task: ITask) =>
-            <TableRow key={task.id} className="row">
-              <TableCell size="small" align="center" className="circle_cell" onClick={() => dispatch(updateStatusTask(task.id))}>
-                <div  className={`circle ${task.completed ? 'completed' : ''}`}>
-                </div>
-              </TableCell>
-              <TableCell>{task.user.name}</TableCell>
-              <TaskTitle task={task} />
-              <TaskTitleEdit task={task} />
-              <TableCell className="icon_cell" onClick={() => dispatch(deleteTask(task.id))}>
-                <DeleteIcon className="icon delete" />
-              </TableCell>
+          {sortedItems.map((item) => (
+            <TableRow key={item.id}>
+
             </TableRow>
-          )}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
+    
+    // <TableContainer component={Paper}>
+    //   <Table className={`table`} aria-label="simple table">
+    //     <TableHead>
+    //       <TableRow>
+    //         <TableCell size="small" align="center"></TableCell>
+    //         <TableCell align="left">Исполнитель</TableCell>
+    //         <TableCell align="left">Задача</TableCell>
+    //         <TableCell align="left"></TableCell>
+    //         <TableCell align="left"></TableCell>
+    //       </TableRow>
+    //     </TableHead>
+    //     <TableBody>
+    //       {tasks.map((task: ITask) =>
+    //         <TableRow key={task.id} className="row">
+    //           <TableCell size="small" align="center" className="circle_cell" onClick={() => dispatch(updateStatusTask(task.id))}>
+    //             <div  className={`circle ${task.completed ? 'completed' : ''}`}>
+    //             </div>
+    //           </TableCell>
+    //           <TableCell>{task.user.name}</TableCell>
+    //           <TaskTitle task={task} />
+    //           <TaskTitleEdit task={task} />
+    //           <TableCell className="icon_cell" onClick={() => dispatch(deleteTask(task.id))}>
+    //             <DeleteIcon className="icon delete" />
+    //           </TableCell>
+    //         </TableRow>
+    //       )}
+    //     </TableBody>
+    //   </Table>
+    // </TableContainer>
   )
 }
 
